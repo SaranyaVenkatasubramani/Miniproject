@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Technology News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: Arial;
+    }
+    p {
+      font-size: 30px;
+    }
+    h5 {
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-dark bg-dark px-4">
+    <a class="navbar-brand" href="index.html">← Back to Home</a>
+  </nav>
+
+  <div class="container mt-5 mb-5">
+    <div class="card shadow">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt-RlqFqWfbZZOMxDs0I1xaZLIT_TuQ3E1TQ&s" class="card-img-top" alt="Tech Image" style="max-height: 500px; object-fit: cover;">
+      <div class="card-body fs-5">
+        <h2 class="card-title text-primary fs-2">Tech 2025: AI is Redefining Everything</h2>
+        <p class="text-muted">Published: July 3, 2025 | By: Tech Times</p>
+        
+        <p>
+          In 2025, artificial intelligence (AI) is at the forefront of global innovation...
+        </p>
+
+        <h5>💡 Rise of Robotics</h5>
+        <p>
+          Robotics technology has made giant leaps...
+        </p>
+
+        <h5>🔐 Cybersecurity Challenges</h5>
+        <p>
+          With the growth of technology comes the rising threat of cyberattacks...
+        </p>
+
+        <h5>🌐 Internet of Everything (IoE)</h5>
+        <p>
+          The "Internet of Everything" connects billions of devices...
+        </p>
+
+        <h5>⚖️ Ethical AI and Regulation</h5>
+        <p>
+          Ethical AI is now a global priority...
+        </p>
+
+        <p>
+          As we move further into the digital age, experts agree that the future of technology must be shaped with responsibility, equity, and sustainability in mind.
+        </p>
+
+        <p>
+          <strong>Source:</strong>
+          <a href="https://example.com/tech-2025" target="_blank" class="text-decoration-none">example.com/tech-2025</a>
+        </p>
+
+        <!-- 🔖 Bookmark Button -->
+        <button class="btn btn-warning mt-3" onclick="bookmarkTechArticle()">🔖 Bookmark This Article</button>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-light text-center py-3">
+    &copy; 2025 NewsHub Aggregator
+  </footer>
+
+  <!-- 🔸 Bookmark Script -->
+  <script>
+    function bookmarkTechArticle() {
+      const article = {
+        title: "Tech 2025: AI is Redefining Everything",
+        date: "July 3, 2025",
+        source: "https://example.com/tech-2025"
+      };
+
+      let bookmarks = JSON.parse(localStorage.getItem("techBookmarks")) || [];
+
+      const exists = bookmarks.some(item => item.title === article.title);
+      if (exists) {
+        alert("✅ This article is already bookmarked!");
+        return;
+      }
+
+      bookmarks.push(article);
+      localStorage.setItem("techBookmarks", JSON.stringify(bookmarks));
+      alert("🔖 Technology article bookmarked successfully!");
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Politics News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 20px;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .card-title {
+      font-size: 2rem;
+      color: #0d6efd;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .btn-bookmark {
+      background-color: #ffc107;
+      color: #000;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+
+    .btn-bookmark:hover {
+      background-color: #e0a800;
+    }
+
+    .toast-msg {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #28a745;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark px-4">
+    <a class="navbar-brand text-warning fw-bold" href="index.html">← Back to Home</a>
+  </nav>
+
+  <!-- News Card -->
+  <div class="container mt-5 mb-5">
+    <div class="card shadow-lg">
+      <img src="https://source.unsplash.com/1000x500/?politics,government" class="card-img-top rounded-top" alt="Politics Image">
+      <div class="card-body">
+        <h2 class="card-title">2025 Elections Reshape Global Politics</h2>
+        <p class="text-muted mb-4">📅 Published: July 3, 2025 &nbsp;&nbsp;|&nbsp;&nbsp; 📰 By: Global Affairs Today</p>
+        <p>The 2025 elections across multiple countries have seen significant political shifts. New leaders with progressive agendas are emerging, challenging long-standing power structures and redefining policies.</p>
+        <p>Voter turnout reached record highs, signaling strong public interest in democratic processes. Experts believe this could signal a new era of citizen-driven governance.</p>
+        <p><strong>🔗 Source:</strong> <a href="https://example.com/politics-2025" target="_blank">example.com/politics-2025</a></p>
+
+        <!-- Bookmark Button -->
+        <button class="btn btn-bookmark mt-3" onclick="bookmarkPolitics()">🔖 Bookmark This Article</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Message -->
+  <div class="toast-msg" id="toast">🔖 Bookmarked Successfully!</div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    &copy; 2025 NewsHub Aggregator | Powered by Bootstrap
+  </footer>
+
+  <!-- Bookmark Script -->
+  <script>
+    function bookmarkPolitics() {
+      const article = {
+        title: "2025 Elections Reshape Global Politics",
+        date: "July 3, 2025",
+        source: "https://example.com/politics-2025"
+      };
+
+      let bookmarks = JSON.parse(localStorage.getItem("politicsBookmarks")) || [];
+
+      const exists = bookmarks.some(item => item.title === article.title);
+      if (exists) {
+        showToast
