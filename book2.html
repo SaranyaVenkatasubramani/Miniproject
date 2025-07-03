@@ -101,4 +101,24 @@
 
       const exists = bookmarks.some(item => item.title === article.title);
       if (exists) {
-        showToast
+        showToast("✅ Already Bookmarked!");
+        return;
+      }
+
+      bookmarks.push(article);
+      localStorage.setItem("politicsBookmarks", JSON.stringify(bookmarks));
+      showToast("🔖 Bookmarked Successfully!");
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.innerText = message;
+      toast.style.display = "block";
+      setTimeout(() => {
+        toast.style.display = "none";
+      }, 2500);
+    }
+  </script>
+
+</body>
+</html>
