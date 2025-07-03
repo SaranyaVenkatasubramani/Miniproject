@@ -1,0 +1,9 @@
+body {
+  font-family: Arial;
+  margin: 20px;
+}
+#bookmarks {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+}
